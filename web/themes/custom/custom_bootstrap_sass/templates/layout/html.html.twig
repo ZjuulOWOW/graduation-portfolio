@@ -43,20 +43,35 @@
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
+      <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
 
-  </head>
+      </head>
   <body{{ attributes.addClass(body_classes) }}>
-    <div class="page-wrapper">
-	    <a href="#main-content" class="visually-hidden focusable skip-link">
-	      {{ 'Skip to main content'|t }}
-	    </a>
+    <div class="page-wrapper" id="smooth-wrapper">
+      <div id="smooth-content">
+        <a href="#main-content" class="visually-hidden focusable skip-link">
+          {{ 'Skip to main content'|t }}
+        </a>
 
-	    {{ page_top }}
-	    {{ page }}
-	    {{ page_bottom }}
+        {{ page_top }}
+        {{ page }}
+        {{ page_bottom }}
+      </div>
     </div>
 	<js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
+  <script>
+    const lenis = new Lenis()
 
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
 
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  </script>
 </html>
