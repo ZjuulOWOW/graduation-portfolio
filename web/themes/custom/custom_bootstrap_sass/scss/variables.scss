@@ -50,10 +50,10 @@ $enable-gradients: false;
 
 $border-radius: 12px;
 
-$container-max-widths: (
+$container-max-widths: ( //padding: 16px * 2, max - 32px
   sm: 540px,
-  md: 720px,
+  md: 736px,
   lg: 960px,
-  xl: 1140px,
-  xxl: 1320px
+  xl: 1168px,
+  xxl: 1368px
 );
