@@ -1,6 +1,38 @@
 @import "import";
 
+//Scrolling
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.paralax{
+  pointer-events: none;
+}
+
+// Body, HTML
+
+body{
+  counter-reset: caption-counter;
+}
+
 // Header
+
 header{
   padding-top: 40px;
 }
@@ -27,6 +59,14 @@ header{
 
 .nav-menu-icon{
   font-size: 28px;
+}
+
+// Footer
+
+footer{
+  height: 100vh;
+  background: $primary;
+  margin-top: 240px;
 }
 
 // Buttons
@@ -57,12 +97,22 @@ header{
 
 // Typography
 
-h1, h2{
-  text-transform: $headings-text-transform;
+h1, h2, h4{
+  text-transform: uppercase;
 }
 
 h3{
   font-family: 'poppins', sans-serif;
+}
+
+h4{
+  font-family: 'Bebas Neue', sans-serif;
+  &:before{
+    vertical-align: super;
+    counter-increment: caption-counter;
+    content: "(" counter(caption-counter) ")";
+    font-size: 16px;
+  }
 }
 
 // Sections
@@ -71,20 +121,82 @@ section{
   margin-top: 240px;
 }
 
-// Images
+.section--home-usps{
+  padding-top: 40px;
+}
 
-img{
+// CSS
+
+
+img,
+.simpleParallax{
   border-radius: $border-radius;
-}
-
-.landing-image{
-  width: 100%;
-  height: 560px;
   object-fit: cover;
+  width: 100%;
 }
 
-// Other
+.landing-img{
+  height: 560px;
+}
+
+.home-projects-img{
+  @include make-col-ready();
+  @include make-col(5);
+  @include make-col-offset(7);
+  position: absolute;
+  img{
+    height: 600px;
+    width: 100%;
+    pointer-events: none;
+  }
+}
 
 .row--landing{
   margin-top: 80px;
+}
+
+.home-projects{
+  @include make-col-ready();
+  @include make-col(9);
+  @include make-col-offset(2);
+  z-index: 2;
+  padding-top: 120px;
+}
+
+.home-project{
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-color: $primary;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  &:last-of-type{
+    border-width: 1px 0;
+  }
+}
+
+.home-usp-body{
+  @include make-col-ready();
+  @include make-col(6);
+  @include make-col-offset(1);
+  padding: 40px 0 0 0;
+}
+
+.home-usp-img{
+  height: 400px;
+  @include make-col-ready();
+  @include make-col(10);
+  padding: 0;
+  margin: 0 16.666% 0 8.333% ;
+}
+
+.home-usp-imgs{
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  max-width: unset;
+  margin-top: 40px;
+  padding: 0;
 }

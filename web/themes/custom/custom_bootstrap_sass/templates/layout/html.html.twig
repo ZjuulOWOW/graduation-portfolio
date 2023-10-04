@@ -44,7 +44,9 @@
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
       <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
-
+      <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
       </head>
   <body{{ attributes.addClass(body_classes) }}>
     <div class="page-wrapper" id="smooth-wrapper">
@@ -61,17 +63,42 @@
 	<js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
   <script>
+    // simpleParallax
+    var image = document.querySelectorAll('.paralax');
+    new simpleParallax(image, {
+      delay: 5,
+      transition: 'cubic-bezier(0,0,0,1)',
+      scale: 1.15
+    });
+    var image = document.querySelectorAll('.paralax-2');
+    new simpleParallax(image, {
+      orientation: "down left",
+      delay: 5,
+      transition: 'cubic-bezier(0,0,0,1)',
+      scale: 1.15
+    });
+
+    //Lenis
     const lenis = new Lenis()
-
-    lenis.on('scroll', (e) => {
-      console.log(e)
-    })
-
     function raf(time) {
       lenis.raf(time)
       requestAnimationFrame(raf)
     }
-
     requestAnimationFrame(raf)
+
+    //GSAP
+    gsap.registerPlugin(ScrollTrigger);
+    let homeUsps = gsap.utils.toArray(".home-usp-img");
+    let scrollTween = gsap.to(homeUsps, {
+      xPercent: -66.6666 * (homeUsps.length),
+      scrollTrigger: {
+        trigger: ".section--home-usps",
+        pin: true,
+        scrub: 1,
+        end: () => "+=" + document.querySelector(".section--home-usps").offsetWidth
+      }
+    });
+
+    ScrollTrigger.update()
   </script>
 </html>
