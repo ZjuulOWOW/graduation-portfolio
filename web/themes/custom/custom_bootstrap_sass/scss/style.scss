@@ -67,6 +67,56 @@ footer{
   height: 100vh;
   background: $primary;
   margin-top: 240px;
+  padding: 40px;
+  color: $secondary;
+}
+
+.footer-container{
+  @include make-container();
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.footer-title{
+  @include make-col-ready;
+  @include make-col(5);
+  @include make-col-offset(1);
+  display: flex;
+  align-items: center;
+}
+
+.footer-brand,
+.footer-cr{
+  @include make-col-ready();
+  @include make-col(6);
+  border-top: 1px solid $secondary;
+  padding-top: 40px;
+  > *{
+    margin-bottom: 0;
+  }
+}
+
+.footer-cr{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-link{
+  @include make-col-ready();
+  @include make-col();
+  @include make-col-offset(1);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.footer-link-arrow{
+  position: absolute;
+  font-size: 320px;
+  margin-left: 40px;
+  transform: rotate(45deg);
 }
 
 // Buttons
@@ -137,6 +187,18 @@ img,
 
 .landing-img{
   height: 560px;
+}
+
+.text--circ{
+  height: 400px;
+  width: 400px;
+}
+
+.landing-text--circ{
+  position: absolute;
+  right: -190px;
+  bottom: -190px;
+  mix-blend-mode: difference;
 }
 
 .home-projects-img{

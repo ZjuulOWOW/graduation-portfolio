@@ -90,14 +90,44 @@
     gsap.registerPlugin(ScrollTrigger);
     let homeUsps = gsap.utils.toArray(".home-usp-img");
     let scrollTween = gsap.to(homeUsps, {
-      xPercent: -66.6666 * (homeUsps.length),
+      xPercent: -65 * (homeUsps.length),
       scrollTrigger: {
         trigger: ".section--home-usps",
         pin: true,
         scrub: 1,
-        end: () => "+=" + document.querySelector(".section--home-usps").offsetWidth
+        end: () => "+=" + (document.querySelector(".section--home-usps").offsetWidth + 2000)
       }
     });
+
+    var velo = 1
+
+    var action =  gsap.to(".text--circ", {
+      rotation:360,
+      transformOrigin:"center",
+      duration: 10,
+      repeat:-1,
+      ease: Power0.easeNone,
+      onReverseComplete: function() { this.progress(1) }
+    })
+
+    ScrollTrigger.create({
+      endTrigger: "body",
+      onUpdate: (self) => {
+        velo = self.getVelocity()
+        speed = velo * 0.005
+        if (speed < -2){
+          speed = -2
+        }
+        if (speed > 2){
+          speed = 2
+        }
+        if (speed === 0){
+          speed = 0.1
+        }
+        console.log(speed)
+        gsap.set(action, {timeScale: speed})
+      }
+    })
 
     ScrollTrigger.update()
   </script>
