@@ -88,16 +88,18 @@
 
     //GSAP
     gsap.registerPlugin(ScrollTrigger);
-    let homeUsps = gsap.utils.toArray(".home-usp-img");
-    let scrollTween = gsap.to(homeUsps, {
-      xPercent: -65 * (homeUsps.length),
-      scrollTrigger: {
-        trigger: ".section--home-usps",
-        pin: true,
-        scrub: 1,
-        end: () => "+=" + (document.querySelector(".section--home-usps").offsetWidth + 2000)
-      }
-    });
+    if(document.querySelector(".section--home-usps")){
+      let homeUsps = gsap.utils.toArray(".home-usp-img");
+      let scrollTween = gsap.to(homeUsps, {
+        xPercent: -65 * (homeUsps.length),
+        scrollTrigger: {
+          trigger: ".section--home-usps",
+          pin: true,
+          scrub: 1,
+          end: () => "+=" + (document.querySelector(".section--home-usps").offsetWidth + 2000)
+        }
+      });
+    }
 
     var velo = 1
 

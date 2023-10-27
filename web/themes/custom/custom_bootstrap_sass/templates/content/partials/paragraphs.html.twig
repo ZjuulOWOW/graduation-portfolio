@@ -8,6 +8,9 @@
       {% if paragraphType == 'text' %}
         {% include directory ~ '/templates/content/partials/paragraphs/text.html.twig' %}
       {% endif %}
+      {% if paragraphType == 'media' %}
+        {% include directory ~ '/templates/content/partials/paragraphs/media.html.twig' %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 

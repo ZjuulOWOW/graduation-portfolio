@@ -147,6 +147,16 @@ footer{
 
 // Typography
 
+h1{
+  line-height: 80px;
+  &>span{
+    font-family: 'ohno-blazeface';
+    font-weight: 100;
+    font-style: italic;
+    font-size: 100px;
+  }
+}
+
 h1, h2, h4{
   text-transform: uppercase;
 }
@@ -173,6 +183,31 @@ section{
 
 .section--home-usps{
   padding-top: 40px;
+}
+
+.section--media + .section--text{
+  margin-top: 40px;
+}
+
+.section--process + .section--par{
+  margin-top: 40px;
+}
+
+// Paragraphs
+
+.par-text{
+  @include make-col-ready();
+  @include make-col(8);
+  @include make-col-offset(2);
+}
+
+.par-media{
+  @include make-col-ready();
+  @include make-col(8);
+  @include make-col-offset(2);
+  &>*{
+    width: 100%;
+  }
 }
 
 // CSS
@@ -261,4 +296,27 @@ img,
   max-width: unset;
   margin-top: 40px;
   padding: 0;
+}
+
+.los{
+  @include make-col-ready();
+  @include make-col(10);
+  margin: 80px 0 16px 0;
+  display: flex;
+}
+
+.lo{
+  padding: 8px 16px;
+  margin-right: 8px;
+  background: $primary;
+  color: $secondary;
+  width: fit-content;
+  border-radius: $border-radius;
+}
+
+.project-intro {
+  @include make-col-ready();
+  @include make-col(10);
+  @include make-col-offset(2);
+  margin-top: 40px;
 }

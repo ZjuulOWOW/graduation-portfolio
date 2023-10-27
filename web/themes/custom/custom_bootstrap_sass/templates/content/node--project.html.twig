@@ -1,0 +1,51 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1><span>{{ node.title.value |first }}</span>{{ node.title.value |slice(1) }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="los">
+        {% for lo in node.field_leerdoelen %}
+          <div class="lo">
+            {{ lo.entity.name.value }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 position-relative">
+        <img src="{{ node.field_jumbo.entity.field_media_image.entity.uri.value | image_style('basic') }}" alt="" class="landing-img paralax">
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4>
+          Intro
+        </h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="project-intro">
+        <h5>{{ node.field_intro.value | raw }}</h5>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section--process">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4>
+          Process
+        </h4>
+      </div>
+    </div>
+  </div>
+</section>
+{% include directory ~ '/templates/content/partials/paragraphs.html.twig' %}
