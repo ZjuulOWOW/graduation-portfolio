@@ -167,6 +167,7 @@ h3{
 
 h4{
   font-family: 'Bebas Neue', sans-serif;
+  margin-bottom: 40px;
   &:before{
     vertical-align: super;
     counter-increment: caption-counter;
@@ -189,8 +190,8 @@ section{
   margin-top: 40px;
 }
 
-.section--process + .section--par{
-  margin-top: 40px;
+.section--par + .section--par{
+  margin-top: 80px;
 }
 
 // Paragraphs
@@ -198,15 +199,32 @@ section{
 .par-text{
   @include make-col-ready();
   @include make-col(8);
-  @include make-col-offset(2);
+  @include make-col-offset(1);
+}
+
+.par-icon{
+  @include make-col-ready();
+  @include make-col(1);
 }
 
 .par-media{
   @include make-col-ready();
-  @include make-col(8);
-  @include make-col-offset(2);
-  &>*{
+  &:first-of-type{
+    @include make-col-offset(2);
+  }
+  &>img{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &--1{
+    @include make-col(8);
+  }
+  &--2{
+    @include make-col(5);
+  }
+  &--3{
+    @include make-col(3);
   }
 }
 
@@ -318,5 +336,4 @@ img,
   @include make-col-ready();
   @include make-col(10);
   @include make-col-offset(2);
-  margin-top: 40px;
 }

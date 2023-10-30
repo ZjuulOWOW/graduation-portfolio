@@ -1,6 +1,18 @@
 <section class="section--text section--par">
   <div class="container">
+    {% if paragraph.entity.field_title.value %}
+      <div class="row">
+        <h4>
+          {{ paragraph.entity.field_title.value | raw }}
+        </h4>
+      </div>
+    {% endif %}
     <div class="row">
+      {% if paragraph.entity.field_title.value %}
+        <div class="par-icon">
+          <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/star-{{ title_index }}.svg" alt="">
+        </div>
+      {% endif %}
       <div class="par-text">
         {{ paragraph.entity.field_text.value | raw }}
       </div>
