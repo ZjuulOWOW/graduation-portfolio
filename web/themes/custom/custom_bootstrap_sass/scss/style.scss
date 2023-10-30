@@ -34,18 +34,24 @@ body{
 // Header
 
 header{
-  padding-top: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid $primary;
 }
 
 .nav-brand{
   @include make-col-ready();
-  @include make-col(2);
+  @include make-col(4);
+  display: flex;
+  align-items: center;
+  &>h5{
+    margin-bottom: 0;
+  }
 }
 
 .nav-links{
   @include make-col-ready();
   @include make-col(4);
-  @include make-col-offset(6);
+  @include make-col-offset(4);
   display: flex;
   justify-content: flex-end;
 }
@@ -148,12 +154,15 @@ footer{
 // Typography
 
 h1{
-  line-height: 80px;
+  line-height: 144px;
+  margin-bottom: 0;
+}
+
+h1, h2{
   &>span{
     font-family: 'ohno-blazeface';
     font-weight: 100;
     font-style: italic;
-    font-size: 100px;
   }
 }
 
@@ -161,13 +170,15 @@ h1, h2, h4{
   text-transform: uppercase;
 }
 
-h3{
+h5{
   font-family: 'poppins', sans-serif;
 }
 
 h4{
   font-family: 'Bebas Neue', sans-serif;
   margin-bottom: 40px;
+  padding-top: 40px;
+  border-top: 1px solid $primary;
   &:before{
     vertical-align: super;
     counter-increment: caption-counter;
@@ -176,10 +187,31 @@ h4{
   }
 }
 
+.title{
+  @include make-col-ready;
+  @include make-col(8);
+}
+
 // Sections
 
 section{
   margin-top: 240px;
+}
+
+.section--landing{
+  height: calc(100vh - 127px);
+  display: flex;
+  align-items: flex-end;
+  margin-top: 0;
+  padding-bottom: 40px;
+}
+
+.section--cta{
+  margin-top: 0;
+}
+
+.section--work{
+  margin-top: 320px;
 }
 
 .section--home-usps{
@@ -336,4 +368,12 @@ img,
   @include make-col-ready();
   @include make-col(10);
   @include make-col-offset(2);
+}
+
+.landing-star{
+  height: 120px;
+  width: 120px;
+  &--inline{
+    margin: 0 -20px 32px -20px;
+  }
 }
