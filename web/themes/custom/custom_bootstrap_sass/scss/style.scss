@@ -43,6 +43,13 @@ header{
   @include make-col(4);
   display: flex;
   align-items: center;
+}
+
+.nav-logo{
+  color: $primary;
+  &:hover{
+    text-decoration: none;
+  }
   &>h5{
     margin-bottom: 0;
   }
@@ -177,8 +184,6 @@ h5{
 h4{
   font-family: 'Bebas Neue', sans-serif;
   margin-bottom: 40px;
-  padding-top: 40px;
-  border-top: 1px solid $primary;
   &:before{
     vertical-align: super;
     counter-increment: caption-counter;
@@ -226,17 +231,26 @@ section{
   margin-top: 80px;
 }
 
+.section--par h4{
+  padding-top: 40px;
+  border-top: 1px solid $primary;
+}
+
 // Paragraphs
 
 .par-text{
   @include make-col-ready();
   @include make-col(8);
-  @include make-col-offset(1);
+  @include make-col-offset(2);
 }
 
 .par-icon{
   @include make-col-ready();
   @include make-col(1);
+}
+
+.par-icon + .par-text{
+  @include make-col-offset(1);
 }
 
 .par-media{
@@ -253,15 +267,19 @@ section{
     @include make-col(8);
   }
   &--2{
-    @include make-col(5);
+    @include make-col(4);
   }
   &--3{
-    @include make-col(3);
+    @include make-col(2);
   }
 }
 
-// CSS
+.par-caption{
+  @include make-col-ready();
+  @include make-col-offset(2);
+}
 
+// CSS
 
 img,
 .simpleParallax{
@@ -324,28 +342,46 @@ img,
   }
 }
 
-.home-usp-body{
+.home-usps{
+  margin-top: 80px;
+}
+
+.usp{
+  position: relative;
+}
+
+.usp-media{
+  @include make-col-ready();
+  @include make-col(7);
+  @include make-col-offset(5);
+  &>img,
+  >video{
+    height: 480px;
+  }
+}
+
+.usp-text {
+  @include make-col-ready();
+  @include make-col(8);
+  @include make-col-offset(1);
+  position: absolute;
+  mix-blend-mode: difference;
+  color: white;
+  z-index: 2;
+  margin-top: 160px;
+}
+
+.usp-body{
   @include make-col-ready();
   @include make-col(6);
-  @include make-col-offset(1);
-  padding: 40px 0 0 0;
+  padding: 0;
 }
 
-.home-usp-img{
-  height: 400px;
+.usp-hr {
   @include make-col-ready();
-  @include make-col(10);
-  padding: 0;
-  margin: 0 16.666% 0 8.333% ;
-}
-
-.home-usp-imgs{
+  @include make-col(7);
+  @include make-col-offset(5);
   display: flex;
-  flex-wrap: nowrap;
-  position: relative;
-  max-width: unset;
-  margin-top: 40px;
-  padding: 0;
 }
 
 .los{
@@ -370,10 +406,16 @@ img,
   @include make-col-offset(2);
 }
 
-.landing-star{
+.landing-star,
+.usp-star {
   height: 120px;
   width: 120px;
   &--inline{
     margin: 0 -20px 32px -20px;
   }
+}
+
+.caption{
+  padding-top: 16px;
+  font-style: italic;
 }

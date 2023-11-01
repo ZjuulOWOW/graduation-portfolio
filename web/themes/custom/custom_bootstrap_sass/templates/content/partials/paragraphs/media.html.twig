@@ -6,6 +6,11 @@
           <img src="{{ img.entity.field_media_image.entity.uri.value | image_style('basic') }}" alt="">
         </div>
       {% endfor %}
+      {% if paragraph.entity.field_caption.value %}
+        <div class="par-caption">
+        <p class="caption">{{ paragraph.entity.field_caption.value | raw }}</p>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>

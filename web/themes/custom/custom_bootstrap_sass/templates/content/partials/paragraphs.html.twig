@@ -10,6 +10,9 @@
         {% include directory ~ '/templates/content/partials/paragraphs/text.html.twig' %}
         {% if paragraph.entity.field_title.value %}
           {% set title_index = title_index + 1 %}
+          {% if title_index > 4 %}
+            {% set title_index = 1 %}
+          {% endif %}
         {% endif %}
       {% endif %}
       {% if paragraphType == 'media' %}
