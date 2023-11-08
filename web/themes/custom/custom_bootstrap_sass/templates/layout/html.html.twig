@@ -146,7 +146,7 @@
       }
       $('.mouse-overlay').css(styles_img)
     })
-    $('.home-project').hover(function (){
+    $('.customCursor').hover(function (){
       $('.mouse-overlay--eye').toggleClass('is-visable')
     })
 
@@ -162,6 +162,7 @@
 
     var menuAnimation = anime.timeline()
       .add({
+        duration: 500,
         targets: '.menu-link>span',
         opacity: [0, 1],
         translateY: [-100, 0],
@@ -177,7 +178,7 @@
         menuAnimation.reverse()
       setTimeout(function (){
         menuAnimation.play()
-      }, 100)
+      }, 200)
     })
   </script>
 </html>

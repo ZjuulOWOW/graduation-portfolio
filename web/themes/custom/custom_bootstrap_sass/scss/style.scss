@@ -135,8 +135,17 @@ body{
   color: $secondary;
   padding: 16px 0;
   border-bottom: 1px solid $secondary;
+  transition: .2s;
+  &:first-of-type{
+    border-radius: $border-radius $border-radius 0 0;
+  }
   &:last-of-type{
     border: none;
+    border-radius: 0 0 $border-radius $border-radius;
+  }
+  &:hover{
+    background: $secondary;
+    color: $primary;
   }
 }
 
@@ -470,7 +479,6 @@ iframe{
   flex-direction: column;
   justify-content: space-between;
   padding: 16px 0;
-  cursor: none;
 }
 
 .home-usps{
@@ -554,6 +562,10 @@ iframe{
   font-style: italic;
 }
 
+.customCursor{
+  cursor: none;
+}
+
 .mouse-overlay{
   height: 120px;
   width: 120px;
@@ -562,6 +574,7 @@ iframe{
   align-items: center;
   position: absolute;
   pointer-events: none;
+  z-index: 4;
 }
 
 .mouse-overlay--eye{
