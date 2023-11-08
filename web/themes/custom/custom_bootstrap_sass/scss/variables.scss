@@ -3,7 +3,7 @@
 // colors
 $primary: #252525;
 $secondary: #FFF9EF;
-$primary-shade: rgb(255, 78, 46);
+$primary-shade: $secondary;
 $primary-light: lighten($primary-shade, 37%);
 $primary-dark: darken($primary-shade, 12%);
 $accent-shade: $primary;

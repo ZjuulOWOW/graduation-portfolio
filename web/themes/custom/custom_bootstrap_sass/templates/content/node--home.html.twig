@@ -18,7 +18,7 @@
         <p>
           {{ node.field_intro.value | raw }}
         </p>
-        <a role="button" href="" class="btn btn-primary btn-arrow">
+        <a role="button" href="./learning-goals" class="btn btn-primary btn-arrow">
           Learning goals
         </a>
       </div>
@@ -36,20 +36,15 @@
     </div>
     <div class="row position-relative">
       <div class="home-projects">
-        <div class="home-project">
-          <a href="/portfolio-7/web/promo"><h3>PROMO</h3></a>
-        </div>
-        <div class="home-project">
-          <h3>Lorem ipsum</h3>
-        </div>
-        <div class="home-project">
-          <h3>Lorem ipsum</h3>
-        </div>
+        {{ views.custom_bootstrap_sass_views_block__projects_block_1 }}
       </div>
       <div class="home-projects-img">
-        <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/placeholder.jpg" alt="" class="paralax-2">
+        {{ views.custom_bootstrap_sass_views_block__projects_img_block_1 }}
       </div>
     </div>
+  </div>
+  <div class="mouse-overlay">
+    <i class="bi bi-eye-fill mouse-overlay--eye"></i>
   </div>
 </section>
 <section class="section--home-usps">

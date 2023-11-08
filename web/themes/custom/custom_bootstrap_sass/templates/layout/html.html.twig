@@ -72,6 +72,8 @@
     </div>
 	<js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     // simpleParallax
     var image = document.querySelectorAll('.paralax');
@@ -125,11 +127,57 @@
         if (speed === 0){
           speed = 0.1
         }
-        console.log(speed)
         gsap.set(action, {timeScale: speed})
       }
     })
 
     ScrollTrigger.update()
+
+    //view home image carousel
+    $('.home-projects .views-row').mouseenter(function(){
+      $('.home-projects-img .view-content').css('top', (-600 * $(this).index() + "px"))
+    })
+
+    //mouse overlay
+    $('body').mousemove(function( event ) {
+      var styles_img = {
+        "left" : event.pageX - 60,
+        "top" : event.pageY - 60
+      }
+      $('.mouse-overlay').css(styles_img)
+    })
+    $('.home-project').hover(function (){
+      $('.mouse-overlay--eye').toggleClass('is-visable')
+    })
+
+    //menu
+    $('.menu-link').each(function (index) {
+      var characters = $(this).text().split("")
+      $this = $(this)
+      $this.empty()
+      $.each(characters, function (i, el) {
+        $this.append('<span class="letter">' + el + '</span>')
+      })
+    })
+
+    var menuAnimation = anime.timeline()
+      .add({
+        targets: '.menu-link>span',
+        opacity: [0, 1],
+        translateY: [-100, 0],
+        easing: "cubicBezier(0.16, 1, 0.3, 1)",
+        autoplay: false,
+        delay: (el, i) => 30 * i
+      })
+    menuAnimation.reverse()
+
+    $('.nav-menu-btn').click(function(){
+      $('.menu').toggleClass("is-active")
+      $("html, body").animate({ scrollTop: 0, height: "100vh" }, "slow")
+        menuAnimation.reverse()
+      setTimeout(function (){
+        menuAnimation.play()
+      }, 100)
+    })
   </script>
 </html>

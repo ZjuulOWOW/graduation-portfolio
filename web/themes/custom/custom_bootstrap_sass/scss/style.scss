@@ -27,15 +27,30 @@ html.lenis {
 
 // Body, HTML
 
+html,body{
+ &:has(.menu.is-active){
+   overflow: hidden;
+ }
+  &:not(:has(.menu.is-active)){
+    height: unset!important;
+  }
+}
+
+
 body{
   counter-reset: caption-counter;
 }
 
 // Header
 
-header{
-  padding: 40px 0;
+.nav{
+  padding-top: 40px;
+  padding-bottom: 40px;
   border-bottom: 1px solid $primary;
+}
+
+.nav-col{
+  padding: 0!important;
 }
 
 .nav-brand{
@@ -43,6 +58,10 @@ header{
   @include make-col(4);
   display: flex;
   align-items: center;
+}
+
+.nav-logo--alt>h5 {
+  color: $secondary;
 }
 
 .nav-logo{
@@ -69,6 +88,65 @@ header{
 
 .nav-menu-icon{
   font-size: 28px;
+}
+
+// Menu
+
+.menu{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: $primary;
+  top: -100vh;
+  padding-bottom: 40px;
+  z-index: 3;
+  transition: top 1s cubic-bezier(0.16, 1, 0.3, 1);
+  &.is-active{
+    top: 0;
+  }
+}
+
+.menu-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-links{
+  @include make-col-ready();
+  @include make-col(9);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-footer{
+  @include make-col-ready();
+  @include make-col-offset(1);
+  @include make-col(2);
+  display: flex;
+  align-items: flex-end;
+  color: $secondary;
+}
+
+.menu-link{
+  font-size: $h1-font-size;
+  font-family: $headings-font-family;
+  color: $secondary;
+  padding: 16px 0;
+  border-bottom: 1px solid $secondary;
+  &:last-of-type{
+    border: none;
+  }
+}
+
+.menu-link>span{
+  display: inline-block;
+  &:first-of-type{
+    font-family: 'ohno-blazeface';
+    font-weight: 100;
+    font-style: italic;
+  }
 }
 
 // Footer
@@ -144,10 +222,24 @@ footer{
 
 // Buttons
 
-.btn-primary{
-  color: $secondary;
+.btn{
   display: flex;
   align-items: center;
+}
+
+.btn-primary{
+  color: $secondary;
+  &.btn-arrow:after{
+    background: $secondary;
+    color: $primary;
+  }
+}
+
+.btn-secondary{
+  &.btn-arrow:after{
+    background: $primary;
+    color: $secondary;
+  }
 }
 
 .btn-arrow{
@@ -170,7 +262,8 @@ footer{
 
 // Typography
 
-h1{
+h1,
+.menu-link{
   line-height: 144px;
   margin-bottom: 0;
 }
@@ -183,7 +276,7 @@ h1, h2{
   }
 }
 
-h1, h2, h4{
+h1, h2, h4, .menu-link{
   text-transform: uppercase;
 }
 
@@ -330,10 +423,24 @@ iframe{
   @include make-col(5);
   @include make-col-offset(7);
   position: absolute;
-  img{
+  &>.views-element-container{
     height: 600px;
+    border-radius: $border-radius;
+    overflow: hidden;
+    position: relative;
+  }
+  .views-field{
+    height: 600px;
+  }
+  .view-content{
+    position: absolute;
+    transition: 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  img{
+    height: 100%;
     width: 100%;
     pointer-events: none;
+    border-radius: 0;
   }
 }
 
@@ -343,10 +450,18 @@ iframe{
 
 .home-projects{
   @include make-col-ready();
-  @include make-col(9);
-  @include make-col-offset(2);
+  @include make-col(10);
+  @include make-col-offset(1);
   z-index: 2;
   padding-top: 120px;
+  .views-row{
+    border-color: $primary;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    &:last-of-type{
+      border-width: 1px 0;
+    }
+  }
 }
 
 .home-project{
@@ -355,12 +470,7 @@ iframe{
   flex-direction: column;
   justify-content: space-between;
   padding: 16px 0;
-  border-color: $primary;
-  border-width: 1px 0 0 0;
-  border-style: solid;
-  &:last-of-type{
-    border-width: 1px 0;
-  }
+  cursor: none;
 }
 
 .home-usps{
@@ -442,4 +552,23 @@ iframe{
 .caption{
   padding-top: 16px;
   font-style: italic;
+}
+
+.mouse-overlay{
+  height: 120px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  pointer-events: none;
+}
+
+.mouse-overlay--eye{
+  font-size: 0px;
+  transition: font-size .2s;
+}
+
+.is-visable{
+  font-size: 120px;
 }
