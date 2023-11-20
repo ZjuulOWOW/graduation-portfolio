@@ -336,10 +336,13 @@ section{
 
 .section--work{
   margin-top: 320px;
+  padding-bottom: 200px;
 }
 
-.section--home-usps{
-  padding-top: 40px;
+.section--services{
+  &>hr{
+    margin-bottom: 64px;
+  }
 }
 
 .section--media + .section--text{
@@ -432,6 +435,7 @@ iframe{
   @include make-col(5);
   @include make-col-offset(6);
   position: absolute;
+  pointer-events: none;
   &>.views-element-container{
     height: 600px;
     border-radius: $border-radius;
@@ -459,11 +463,10 @@ iframe{
 
 .home-projects{
   @include make-col-ready();
-  @include make-col(10);
-  @include make-col-offset(1);
-  padding-top: 120px;
+  @include make-col(12);
+  padding: 120px 0 0 0;
   .views-row{
-    border-color: $primary;
+    border-color: $secondary;
     border-style: solid;
     border-width: 1px 0 0 0;
     &:last-of-type{
@@ -477,9 +480,10 @@ iframe{
   display: flex;
   padding: 16px 0;
   transition: .2s;
+  color: $secondary;
   &:hover {
-    background: $primary;
-    color: $secondary;
+    background: $secondary;
+    color: $primary;
   }
 }
 
@@ -488,52 +492,9 @@ iframe{
   @include make-col(7)
 }
 
-//.home-project-los{
-//  @include make-col-ready();
-//  @include make-col(3);
-//  @include make-col-offset(1);
-//}
-
-.home-usps{
-  margin-top: 80px;
-}
-
-.usp{
-  position: relative;
-}
-
-.usp-media{
-  @include make-col-ready();
-  @include make-col(7);
-  @include make-col-offset(5);
-  &>img,
-  >video{
-    height: 480px;
-  }
-}
-
-.usp-text {
-  @include make-col-ready();
-  @include make-col(8);
-  @include make-col-offset(1);
-  position: absolute;
-  mix-blend-mode: difference;
-  color: white;
-  z-index: 2;
-  margin-top: 160px;
-}
-
-.usp-body{
+.service{
   @include make-col-ready();
   @include make-col(6);
-  padding: 0;
-}
-
-.usp-hr {
-  @include make-col-ready();
-  @include make-col(7);
-  @include make-col-offset(5);
-  display: flex;
 }
 
 .los{
@@ -561,13 +522,22 @@ iframe{
   }
 }
 
-.landing-star,
-.usp-star {
-  height: 120px;
-  width: 120px;
-  &--inline{
-    margin: 0 -20px 32px -20px;
-  }
+.star--sm {
+  height: 100px;
+  width: 100px;
+}
+
+.star--md{
+  height: 140px;
+  width: 140px;
+}
+
+.star--inline{
+    margin: 0 -32px 32px -32px;
+}
+
+.service-star{
+  margin-bottom: 32px;
 }
 
 .caption{
@@ -593,8 +563,24 @@ iframe{
 .mouse-overlay--eye{
   font-size: 0px;
   transition: font-size .2s;
+  color: $thirtairy;
 }
 
 .is-visable{
   font-size: 120px;
+}
+
+.textfield{
+  border-radius: $border-radius;
+  padding: 16px;
+}
+
+.bg--1{
+  background: $primary;
+}
+.bg--2{
+  background: $secondary;
+}
+.bg--3{
+  background: $thirtairy;
 }

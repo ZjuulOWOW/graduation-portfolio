@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1><span>c</span>reative webdesign <span>&</span> <span>d</span>evel <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/star-2.svg" alt="" class="star landing-star landing-star--inline"> pment</h1>
+        <h1><span>c</span>reative webdesign <span>&</span> <span>d</span>evel <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/star-2.svg" alt="" class="star star--md star--inline"> pment</h1>
       </div>
     </div>
   </div>
@@ -15,17 +15,19 @@
         <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/circ-text-1.png" class="landing-text--circ text--circ" alt="">
       </div>
       <div class="col-3 offset-1">
-        <p>
-          {{ node.field_intro.value | raw }}
-        </p>
-        <a role="button" href="./learning-goals" class="btn btn-primary btn-arrow">
-          Learning goals
-        </a>
+        <div class="textfield bg--3">
+          <p>
+            {{ node.field_intro.value | raw }}
+          </p>
+          <a role="button" href="{{ node.field_cta.0.url | raw }}" class="btn btn-primary btn-arrow">
+            {{ node.field_cta.0.title | raw }}
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<section class="section--work">
+<section class="section--work bg--1">
   <div class="container">
     <div class="row">
       <div class="title">
@@ -44,7 +46,8 @@
     </div>
   </div>
 </section>
-<section class="section--home-usps">
+<section class="section--services">
+  <hr>
   <div class="container">
     <div class="row">
       <div class="title">
@@ -53,25 +56,21 @@
         </h4>
       </div>
     </div>
-    <div class="row home-usps">
-      <div class="usp">
-        <div class="usp-text">
-          <h2>Ux Design</h2>
+    <div class="row home-services">
+      <div class="service">
+        <div class="textfield bg--3">
+          <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/star-3.svg" alt="" class="star service-star star--sm">
+          <h2>Ux <br> Design</h2>
           <hr>
-          <p class="usp-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, temporibus tenetur. At fugit incidunt, nostrum quas repellendus sapiente voluptatibus. Commodi culpa dignissimos dolorem illum, incidunt inventore saepe soluta tenetur voluptatibus.</p>
-        </div>
-        <div class="usp-media paralax-of">
-          <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/placeholder.jpg" alt="">
+          <p class="service-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, temporibus tenetur. At fugit incidunt, nostrum quas repellendus sapiente voluptatibus. Commodi culpa dignissimos dolorem illum, incidunt inventore saepe soluta tenetur voluptatibus.</p>
         </div>
       </div>
-      <div class="usp">
-        <div class="usp-text">
+      <div class="service">
+        <div class="textfield bg--3">
+          <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/star-4.svg" alt="" class="star service-star star--sm">
           <h2>Front-end Dev.</h2>
           <hr>
           <p class="usp-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, temporibus tenetur. At fugit incidunt, nostrum quas repellendus sapiente voluptatibus. Commodi culpa dignissimos dolorem illum, incidunt inventore saepe soluta tenetur voluptatibus.</p>
-        </div>
-        <div class="usp-media paralax-of">
-          <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/placeholder.jpg" alt="">
         </div>
       </div>
     </div>
