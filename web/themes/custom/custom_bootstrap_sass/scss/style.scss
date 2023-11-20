@@ -43,10 +43,13 @@ body{
 
 // Header
 
+header{
+  border-bottom: 1px solid $primary;
+}
+
 .nav{
   padding-top: 40px;
   padding-bottom: 40px;
-  border-bottom: 1px solid $primary;
 }
 
 .nav-col{
@@ -461,12 +464,8 @@ iframe{
   margin-top: 80px;
 }
 
-.home-projects{
-  @include make-col-ready();
-  @include make-col(12);
-  padding: 120px 0 0 0;
+.projects{
   .views-row{
-    border-color: $secondary;
     border-style: solid;
     border-width: 1px 0 0 0;
     &:last-of-type{
@@ -475,15 +474,41 @@ iframe{
   }
 }
 
-.home-project{
-  height: 120px;
+.home-projects{
+  @include make-col-ready();
+  @include make-col(12);
+  padding: 120px 0 0 0;
+  .views-row{
+    border-color: $secondary;
+  }
+}
+
+.overview-projects{
+  @include make-col-ready();
+  @include make-col(12);
+}
+
+.project{
   display: flex;
+  align-items: center;
   padding: 16px 0;
   transition: .2s;
+}
+
+.home-project{
   color: $secondary;
+  height: 120px;
   &:hover {
     background: $secondary;
     color: $primary;
+  }
+}
+
+.overview-project{
+  height: 160px;
+  &:hover {
+    background: $primary;
+    color: $secondary;
   }
 }
 
