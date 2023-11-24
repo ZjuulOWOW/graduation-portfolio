@@ -1,0 +1,39 @@
+uuid: d0c5c3a7-1577-4142-a01b-74832c97a1c2
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.lo.field_content
+    - field.field.node.lo.field_intro
+    - node.type.lo
+  module:
+    - entity_reference_revisions
+    - user
+id: node.lo.default
+targetEntityType: node
+bundle: lo
+mode: default
+content:
+  field_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_intro:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,18 @@
+uuid: aa4bcc69-c21f-402f-a5c9-137fbef0d0c5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.lo
+id: node.lo.uuid
+field_name: uuid
+entity_type: node
+bundle: lo
+label: lg
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uuid

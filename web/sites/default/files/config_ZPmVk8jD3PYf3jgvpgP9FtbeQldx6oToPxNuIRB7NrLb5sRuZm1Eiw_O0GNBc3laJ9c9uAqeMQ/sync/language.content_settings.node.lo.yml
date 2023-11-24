@@ -1,0 +1,11 @@
+uuid: b452d037-c628-45e6-94e5-4cdd4680924d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.lo
+id: node.lo
+target_entity_type_id: node
+target_bundle: lo
+default_langcode: site_default
+language_alterable: false

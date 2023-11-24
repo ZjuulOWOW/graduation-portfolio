@@ -37,7 +37,7 @@
     {% for item in items %}
       {%
         set classes = [
-          menu_level ? 'dropdown-item' : 'nav-item',
+          menu_level ? 'dropdown-item' : 'nav-item customCursor',
           item.is_expanded ? 'menu-item--expanded',
           item.is_collapsed ? 'menu-item--collapsed',
           item.in_active_trail ? 'active',
@@ -47,7 +47,7 @@
       <li{{ item.attributes.addClass(classes) }}>
         {%
           set link_classes = [
-            not menu_level ? 'nav-link',
+            not menu_level ? 'nav-link menu-link',
             item.in_active_trail ? 'active',
             item.below ? 'dropdown-toggle',
             item.url.getOption('attributes').class ? item.url.getOption('attributes').class | join(' '),
