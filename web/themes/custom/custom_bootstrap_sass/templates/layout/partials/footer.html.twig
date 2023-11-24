@@ -1,5 +1,6 @@
 <footer>
-  <div class="footer-container">
+  {% set items = simplify_menu('footer') %}
+  <div class="container footer-container">
     <div class="row">
       <div class="col">
         <h4>
@@ -10,12 +11,12 @@
     <div class="row">
       <div class="footer-title">
         <h2>
-          <span>L</span>earning go<span>a</span>ls
+          <span>{{ items.menu_tree.0.text |first }}</span>{{ items.menu_tree.0.text |slice(1) }}</h1>
         </h2>
       </div>
       <div class="footer-cta">
-        <a href="./learning-goals" class="footer-link">
-          <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/circ-text-2.png" class="text--circ footer-text--circ" alt="">
+        <a href="{{ items.menu_tree.0.url }}" class="footer-link">
+          <img src="/portfolio-7/web/themes/custom/custom_bootstrap_sass/images/circ-text-1.png" class="text--circ footer-text--circ" alt="">
           <i class="bi bi-arrow-right-short footer-link-arrow"></i>
         </a>
       </div>

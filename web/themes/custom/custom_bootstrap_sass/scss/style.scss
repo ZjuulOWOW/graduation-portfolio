@@ -93,6 +93,35 @@ header{
   font-size: 28px;
 }
 
+.menu .nav-link{
+  display: flex;
+  &:before{
+    content: '\F135';
+    font-family: bootstrap-icons;
+    font-size: $h2-font-size;
+    display: none;
+  }
+  &:hover{
+    color: $primary!important;
+    &:before{
+      display: block;
+    }
+  }
+}
+
+.menu .nav-link.active{
+  color: $secondary!important;
+  &:hover{
+    color: $primary!important;
+  }
+  &:before{
+    content: '\F135';
+    font-family: bootstrap-icons;
+    font-size: $h2-font-size;
+    display: block;
+  }
+}
+
 // Menu
 
 .menu{
@@ -132,13 +161,8 @@ header{
   color: $secondary;
 }
 
-.menu-link{
-  font-size: $h1-font-size;
-  font-family: $headings-font-family;
-  color: $secondary;
-  padding: 16px 0;
+.menu-links .nav-item{
   border-bottom: 1px solid $secondary;
-  transition: .2s;
   &:first-of-type{
     border-radius: $border-radius $border-radius 0 0;
   }
@@ -150,6 +174,15 @@ header{
     background: $secondary;
     color: $primary;
   }
+}
+
+.menu-link{
+  font-size: $h1-font-size;
+  font-family: $headings-font-family;
+  color: $secondary;
+  padding: 16px 0;
+  transition: .2s;
+  cursor: none;
 }
 
 .menu-link>span{
@@ -319,6 +352,10 @@ a{
   }
 }
 
+hr{
+  margin: 40px 0;
+}
+
 // Sections
 
 section{
@@ -339,13 +376,7 @@ section{
 
 .section--work{
   margin-top: 320px;
-  padding-bottom: 200px;
-}
-
-.section--services{
-  &>hr{
-    margin-bottom: 64px;
-  }
+  padding: 40px 0 160px 0;
 }
 
 .section--media + .section--text{
@@ -439,6 +470,7 @@ iframe{
   @include make-col-offset(6);
   position: absolute;
   pointer-events: none;
+  top: 0;
   &>.views-element-container{
     height: 600px;
     border-radius: $border-radius;
@@ -506,10 +538,26 @@ iframe{
 
 .overview-project{
   height: 160px;
+  position: relative;
   &:hover {
     background: $primary;
     color: $secondary;
+    &>.overview-project-img{
+      display: block;
+    }
   }
+}
+
+.overview-project-img{
+  position: absolute;
+  right: 0;
+  margin-right: 40px;
+  width: 240px;
+  display: none;
+}
+
+.project-title{
+  pointer-events: none;
 }
 
 .home-project-title{
@@ -602,6 +650,9 @@ iframe{
 
 .bg--1{
   background: $primary;
+  .title{
+    color: $secondary;
+  }
 }
 .bg--2{
   background: $secondary;

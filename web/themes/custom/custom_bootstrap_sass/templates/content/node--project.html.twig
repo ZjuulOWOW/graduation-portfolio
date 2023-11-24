@@ -2,18 +2,25 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1><span>{{ node.title.value |first }}</span>{{ node.title.value |slice(1) }}</h1>
+        <a href="./projects">
+          < Back to projects
+        </a>
       </div>
     </div>
     <div class="row">
-      <div class="los">
-        {% for lo in node.field_leerdoelen %}
-          <div class="lo">
-            {{ lo.entity.name.value }}
-          </div>
-        {% endfor %}
+      <div class="col">
+        <h1 class="project-title"><span>{{ node.title.value |first }}</span>{{ node.title.value |slice(1) }}</h1>
       </div>
     </div>
+{#    <div class="row">#}
+{#      <div class="los">#}
+{#        {% for lo in node.field_leerdoelen %}#}
+{#          <div class="lo">#}
+{#            {{ lo.entity.name.value }}#}
+{#          </div>#}
+{#        {% endfor %}#}
+{#      </div>#}
+{#    </div>#}
     <div class="row">
       <div class="col-12 position-relative">
         <img src="{{ node.field_jumbo.entity.field_media_image.entity.uri.value | image_style('basic') }}" alt="" class="landing-img paralax">
