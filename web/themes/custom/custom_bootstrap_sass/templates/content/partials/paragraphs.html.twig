@@ -18,6 +18,9 @@
       {% if paragraphType == 'media' %}
         {% include directory ~ '/templates/content/partials/paragraphs/media.html.twig' %}
       {% endif %}
+      {% if paragraphType == 'button' %}
+        {% include directory ~ '/templates/content/partials/paragraphs/button.html.twig' %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 
