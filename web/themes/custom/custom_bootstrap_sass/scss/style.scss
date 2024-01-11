@@ -433,8 +433,15 @@ section{
   }
 }
 
+.par-button{
+  @include make-col-ready();
+  @include make-col();
+  @include make-col-offset(2);
+}
+
 .par-caption{
   @include make-col-ready();
+  @include make-col();
   @include make-col-offset(2);
 }
 
