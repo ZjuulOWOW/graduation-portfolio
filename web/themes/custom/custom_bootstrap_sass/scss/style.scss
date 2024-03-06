@@ -667,3 +667,30 @@ iframe{
 .bg--3{
   background: $thirtairy;
 }
+
+.cmd-methods{
+  @include make-col-ready();
+  @include make-col(10);
+  @include make-col-offset(2);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.cmd-method{
+  @include make-col-ready();
+  @include make-col(6);
+  padding-bottom: 24px;
+}
+
+.cmd-method-header{
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.cmd-method-logo{
+  height: 40px;
+  width: 40px;
+  margin-right: 16px;
+}
