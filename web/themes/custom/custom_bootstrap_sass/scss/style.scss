@@ -45,11 +45,13 @@ body{
 
 header{
   border-bottom: 1px solid $primary;
+  position: fixed;
+  width: 100%;
 }
 
 .nav{
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .nav-col{
@@ -63,34 +65,37 @@ header{
   align-items: center;
 }
 
-.nav-logo--alt>h5 {
-  color: $secondary;
+.nav-logo{
+  justify-content: center;
 }
 
-.nav-logo{
-  color: $primary;
-  &>h5{
-    margin-bottom: 0;
-  }
+.logo{
+  height: 80px;
 }
 
 .nav-links{
   @include make-col-ready();
   @include make-col(4);
-  @include make-col-offset(4);
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-menu-btn{
   padding: 0 8px;
   width: fit-content;
-  height: 100%;
   margin-left: 32px;
+}
+
+.noline{
+  &::before{
+    content: none!important;
+  }
 }
 
 .nav-menu-icon{
   font-size: 28px;
+  line-height: 0;
 }
 
 .menu .nav-link{
@@ -270,38 +275,49 @@ footer{
 .btn{
   display: flex;
   align-items: center;
+  position: relative;
+  padding: 0;
+  &::before{
+    content: "";
+    height: 1px;
+    width: 0;
+    background: #F7F4EF;
+    position: absolute;
+    top: 100%;
+    transition: width .2s ease-out;
+  }
+  &:hover{
+    &::before{
+      width: 100%;
+    }
+  }
 }
 
 .btn-primary{
-  color: $secondary;
-  &.btn-arrow:after{
-    background: $secondary;
+  color: $primary;
+  background: none;
+  border: none;
+  &:hover{
+    background: none;
+    color: $primary;
+  }
+  &:active{
+    background: none;
     color: $primary;
   }
 }
 
-.btn-secondary{
-  &.btn-arrow:after{
-    background: $primary;
-    color: $secondary;
-  }
-}
-
 .btn-arrow{
-  padding-right: 6px;
   display: flex;
   justify-content: space-between;
   width: fit-content;
   &:after{
     font-family: "bootstrap-icons";
     content: "\F135";
-    background: $secondary;
     color: $primary;
-    border-radius: 8px;
-    font-size: 24px;
-    line-height: 1;
-    padding: 4px;
-    margin-left: 32px;
+    font-size: 32px;
+    margin-left: 4px;
+    line-height: 0;
   }
 }
 
@@ -311,6 +327,8 @@ h1,
 .menu-link{
   line-height: 144px;
   margin-bottom: 0;
+  text-align: center;
+
 }
 
 h1, h2{
@@ -319,6 +337,7 @@ h1, h2{
     font-weight: 100;
     font-style: italic;
   }
+
 }
 
 h1, h2, h4, .menu-link{
@@ -327,6 +346,7 @@ h1, h2, h4, .menu-link{
 
 h5{
   font-family: 'poppins', sans-serif;
+  font-weight: normal;
 }
 
 h4{
@@ -363,11 +383,11 @@ section{
 }
 
 .section--landing{
-  height: calc(100vh - 127px);
+  height: 100vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   margin-top: 0;
-  padding-bottom: 40px;
 }
 
 .section--cta{
@@ -447,6 +467,43 @@ section{
 
 // CSS
 
+.landing-title{
+  @include make-col-ready();
+  @include make-col();
+  display: flex;
+  flex-direction: column;
+  padding-top: 120px;
+}
+
+.landing-title--1{
+  align-self: flex-start;
+}
+
+.landing-title--2{
+  align-self: flex-end;
+}
+
+.landing-cta{
+  @include make-col-ready();
+  @include make-col();
+  @include make-col-offset(10);
+  padding-top: 120px;
+}
+
+.logo--3d{
+  position: absolute;
+  z-index: -1;
+}
+
+.hoop{
+  height: 60vh;
+  width: 40vw;
+  border-radius: 50%;
+  border: 5px solid $primary;
+  position: absolute;
+  transform: skewX(300deg)
+}
+
 img,
 .simpleParallax,
 iframe{
@@ -518,7 +575,7 @@ iframe{
   @include make-col(12);
   padding: 120px 0 0 0;
   .views-row{
-    border-color: $secondary;
+    border-color: $primary;
   }
 }
 
@@ -694,3 +751,5 @@ iframe{
   width: 40px;
   margin-right: 16px;
 }
+
+

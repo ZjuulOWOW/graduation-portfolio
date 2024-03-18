@@ -1,33 +1,21 @@
 <section class="section--landing">
+  <spline-viewer class="logo--3d" url="https://prod.spline.design/8-eer5MUyn2oXVyF/scene.splinecode"></spline-viewer>
+  <div class="hoop"></div>
   <div class="container">
     <div class="row">
-      <div class="col">
-        <h1><span>c</span>reative webdesign <span>&</span> <span>d</span>evel <img src="./themes/custom/custom_bootstrap_sass/images/star-2.svg" alt="" class="star star--md star--inline"> pment</h1>
+      <div class="landing-title">
+        <h1 class="landing-title--1">Creative</h1>
+        <h1 class="landing-title--2">Developer</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col landing-cta">
+        <a href="" class="btn btn-arrow">Leeswijzer</a>
       </div>
     </div>
   </div>
 </section>
-<section class="section--cta">
-  <div class="container">
-    <div class="row row--landing">
-      <div class="col-8 position-relative">
-        <img class="paralax" src="{{ node.field_jumbo.entity.field_media_image.entity.uri.value | image_style('basic') }}" alt="">
-        <img src="./themes/custom/custom_bootstrap_sass/images/circ-text-1.png" class="landing-text--circ text--circ" alt="">
-      </div>
-      <div class="col-3 offset-1">
-        <div class="textfield bg--3">
-          <p>
-            {{ node.field_intro.value | raw }}
-          </p>
-          <a role="button" href="{{ node.field_cta.0.url | raw }}" class="btn btn-primary btn-arrow">
-            {{ node.field_cta.0.title | raw }}
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section--work bg--1">
+<section class="section--work">
   <div class="container">
     <div class="row">
       <div class="title">
